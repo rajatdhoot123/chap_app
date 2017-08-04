@@ -1,0 +1,61 @@
+MongoDB
+
+/ama
+  id
+  title
+  description
+  startTime
+  endTime
+  status
+  host
+    uid
+  registeredUsers
+    uid
+
+/user
+  id
+  name
+
+
+FireBase Schema
+
+/questions
+  amaId
+    questionId
+      user
+        id
+        name
+      text
+      timestamp
+      votes
+
+/conversation
+  questionId
+    messageId
+      user
+        id
+        name
+      text
+      timestamp
+      votes
+
+/users
+  amaId
+    uid
+    questions
+      id
+        text
+        timestamp
+        votes
+
+/ama
+  id
+  status
+
+/userActivity
+  amaId
+    aType
+    uid
+    timestamp
+    detail
+
