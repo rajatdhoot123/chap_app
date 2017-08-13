@@ -5,6 +5,15 @@
 
 /*CHANGES IN CSS*/
 
+.end-ama{
+    color: #f91f1f;
+}
+
+.notbold{
+    font-size: x-large;
+    font-weight: lighter;
+}​
+
 
 
 .host-chat-box-header{
@@ -68,14 +77,8 @@ hr {
     min-height: 1px;
 }
 
-.user-chat-col {
-
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-
-}
-
-.host-chat-col {
+.chat-col {
+    height: 700px;
     padding-left: 0px !important;
     padding-right: 0px !important;
 
@@ -96,12 +99,8 @@ hr {
   width: 99%;
 }
 
-/*.host-view-footer {
-    bottom: 0px;
-    position: absolute;
-    width: 99%;
-}
-*/
+
+
 
 .bubble{
     background-color: #809fff;

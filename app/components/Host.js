@@ -2,8 +2,31 @@ import React from "react";
 
 
 const htime = "01:11";
+const timeLeft = "09:00"
 const HostChatTime = (props) => <span className="chat-time">{props.time}</span>
 
+
+const ChatTimeLeft = (props) => <span><strong>Time Left :{props.time}</strong></span>
+
+
+class Header extends React.Component {
+    render() {
+        return (
+            <div className = "page-header">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm-10 col-md-10">
+                            <a className="navbar-brand brand-white-new hidden-xs hidden-ms" target="_self" href="/"><img alt="LV" src="https://s3-ap-southeast-1.amazonaws.com/letsventure/public/lvlogoblue.png"></img></a>
+                        </div>
+                        <div className="col-sm-2 col-md-2">
+                            <p> Host View </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
 
 class HostViewChat extends React.Component {
     render() {
@@ -32,7 +55,7 @@ class HostViewChat extends React.Component {
 class HostChat extends React.Component {
     render() {
         return (
-            <div className="col-sm-8 col-md-8 host-chat-col">
+            <div className="col-sm-8 col-md-8 chat-col">
                 <div className="panel panel-default host-chat">
                     <div className="host-header panel-heading">
                         <p className="host-name host-chat-box-header">Mukul Singh</p>
@@ -102,25 +125,48 @@ class UserViewChat extends React.Component {
 }
 
 
+class ChatHeader extends React.Component {
+    render() {
+        return (
+            <div className = "page-header">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm-10 col-md-10">
+                            <p className = "notbold"> LetsVenture Ask Me Anything </p>
+                            <p><strong>Session Ask Me AnyThing With Mahesh Sharma</strong></p>
+                        </div>
+                        <div className="col-sm-2 col-md-2">
+                            <ChatTimeLeft time={timeLeft}/>
+                            {/*<span className="chat-1time">Time Left : 11:30</span>*/}
+                            <p className="end-ama"><strong>End AMA Now ?</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
+
+
 
 class User extends React.Component {
     render() {
         return(
             <div>
-                <div className="col-sm-4 col-md-4 user-chat-col">
-                    <div className="panel panel-default user-chat">
-                        <div className="panel-heading"><strong>Questions to you</strong></div>
-                            <div className="panel-body user-chat-panel chat-panel">
-                                <UserViewChat />
-                            </div>
-                            <div className="user-footer">
-                                <div className="form-group">
-                                  <textarea type="text" rows="2" onKeyUp={this.handleKeyPress} placeholder="Talk to Lets Venture Team" className="form-control user-chat-text-box" id="chat"></textarea>
-                                </div>
+            <div className="col-sm-4 col-md-4 chat-col">
+                <div className="panel panel-default user-chat">
+                    <div className="panel-heading"><strong>Questions to you</strong></div>
+                        <div className="panel-body user-chat-panel chat-panel">
+                            <UserViewChat />
+                        </div>
+                        <div className="user-footer">
+                            <div className="form-group">
+                              <textarea type="text" rows="2" onKeyUp={this.handleKeyPress} placeholder="Talk to Lets Venture Team" className="form-control user-chat-text-box" id="chat"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
         )
     }
 }
@@ -132,7 +178,9 @@ export default class Host extends React.Component {
   render() {
     return (
         <div>
+            <Header />
             <div className="container chat-main">
+            <ChatHeader time={timeLeft}/>
                 <div className="row">
                     <User />
                     <HostChat />
