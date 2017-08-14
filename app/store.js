@@ -1,12 +1,7 @@
 import { createStore, combineReducers } from "redux";
-
-const reducer = (state = { user: "test", authed: false }, action) => {
-  return state;
-};
+import * as reducers from './reducers'
 
 export const store = createStore(
-  combineReducers({
-    usr: reducer
-  }),
+  combineReducers({...reducers}),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
