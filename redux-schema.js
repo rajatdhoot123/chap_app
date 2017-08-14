@@ -1,0 +1,37 @@
+//Redux-Schema
+  ama
+    id
+    title
+    description
+    startTime
+    endTime
+    status
+    host
+      uid
+    registeredUsers
+      [uid]
+    questions
+      [qid]
+  users
+    error
+    fetching
+    order
+      [ids]
+    id
+      name
+      questionId
+  questions
+    questionId
+      userid
+      text
+      timestamp
+      votes
+      conversation
+        [messages]
+  message
+    id
+      userid
+      text
+      timestamp
+      votes
+
