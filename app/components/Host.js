@@ -19,7 +19,6 @@ class Header extends React.Component {
                             <a className="navbar-brand brand-white-new hidden-xs hidden-ms" target="_self" href="/"><img alt="LV" src="https://s3-ap-southeast-1.amazonaws.com/letsventure/public/lvlogoblue.png"></img></a>
                         </div>
                         <div className="col-sm-2 col-md-2">
-                            <p> Host View </p>
                         </div>
                     </div>
                 </div>
@@ -28,36 +27,42 @@ class Header extends React.Component {
     }
 }
 
+
+
+const UserName = (props) => { return (<div>{props.name}</div>)}
+
+
+
 class HostViewChat extends React.Component {
     render() {
         return (
             <div>
                 <li>
                     <div className="bubble">
-                    <span className="personName">Person name:</span> <br></br>
+                    <HostChatTime time={htime}/>
+                    <span className="personName"><UserName name="User Anonomus"/></span> <br></br>
                     <span className="personSay">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.</span>
                     </div>
-                    {/*<span className="time round">12:55 AM <span></span> </span>*/}
-                    <HostChatTime time={htime}/>
                 </li>
                     <li>
                         <div className="bubble2">
-                        <span className="personName2">Person name:</span> <br></br>
-                        <span className="personSay2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.</span> </div>
-                        {/*<span className=" time2 round ">12:55 PM</span>*/}
                         <HostChatTime time={htime}/>
+                        <span className="personName2"><UserName name="Mukul Singh" /></span> <br></br>
+                        <span className="personSay2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.</span> </div>
                     </li>
             </div>
         )
     }
 }
 
+
+
 class HostChat extends React.Component {
     render() {
         return (
             <div className="col-sm-8 col-md-8 chat-col">
                 <div className="panel panel-default host-chat">
-                    <div className="host-header panel-heading">
+                    <div className="panel-heading host-header">
                         <p className="host-name host-chat-box-header">Mukul Singh</p>
                         <p className="host-designation host-chat-box-header">Director LetsVenture</p>
                     </div>
@@ -67,7 +72,7 @@ class HostChat extends React.Component {
                         </ul>
                     </div>
                     <div className="host-footer">
-                        <div className="form-group host-footer">
+                        <div className="form-group host-chatApp-footer">
                             <textarea type="text" rows="2" onKeyUp={this.handleKeyPress} placeholder="Enter Your Reply Here" className="form-control host-chat-text-box" id="chat"></textarea>
                         </div>
                     </div>
@@ -137,7 +142,6 @@ class ChatHeader extends React.Component {
                         </div>
                         <div className="col-sm-2 col-md-2">
                             <ChatTimeLeft time={timeLeft}/>
-                            {/*<span className="chat-1time">Time Left : 11:30</span>*/}
                             <p className="end-ama"><strong>End AMA Now ?</strong></p>
                         </div>
                     </div>
@@ -147,6 +151,109 @@ class ChatHeader extends React.Component {
     }
 }
 
+
+class ConversationThread extends React.Component {
+    render() {
+        return (
+            <div>
+                <div className = "page-header">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-sm-12 col-md-12">
+                                <h2>Conversation Thread </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="container">
+                    <div className="ConversationThread">
+                        <div className="row">
+                            <div className="col-sm-12 col-md-12" >
+                                <h4><strong><UserName name="Mukul Singh" /></strong></h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nulla accusamus magni ve </p>
+                                <div className="col-sm-1 col-md-1" >
+                                    <button type="button" className="btn btn-link"><strong>UpVote</strong></button>
+                                </div>
+                                <div className="col-sm-1 col-md-1" >
+                                    <button type="button" className="btn btn-link"><strong>Share</strong></button>
+                                </div>
+                            </div>
+                            <div className="col-sm-10 col-md-10 nested-thread col-md-offset-1" >
+                            <div className="thread-text">
+                                <h5><strong>Sharad Sharma</strong></h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nulla accusamus magni ve
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nulla accusamus magni ve
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nulla accusamus magni ve
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nulla accusamus magni ve
+                                </p>
+                                <div className="row">
+                                <div className="col-sm-1 col-md-1" >
+                                    <button type="button" className="btn btn-link"><strong>Upvote</strong></button>
+                                </div>
+                                <div className="col-sm-1 col-md-1" >
+                                    <button type="button" className="btn btn-link"><strong>Share</strong></button>
+                                </div>
+                                <div className="col-sm-1 col-md-1" >
+                                    <button type="button" className="btn btn-link"><strong>Delete</strong></button>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br></br>
+                        <div className="row">
+                            <div className="col-sm-12 col-md-12" >
+                                <h4><strong><UserName name="Mukul Singh" /></strong></h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nulla accusamus magni ve </p>
+                                <div className="col-sm-1 col-md-1" >
+                                    <button type="button" className="btn btn-link"><strong>UpVote</strong></button>
+                                </div>
+                                <div className="col-sm-1 col-md-1" >
+                                    <button type="button" className="btn btn-link"><strong>Share</strong></button>
+                                </div>
+                            </div>
+                            <div className="col-sm-10 col-md-10 nested-thread col-md-offset-1" >
+                            <div className="thread-text">
+                                <h5><strong>Sharad Sharma</strong></h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nulla accusamus magni ve
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nulla accusamus magni ve
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nulla accusamus magni ve
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nulla accusamus magni ve
+                                </p>
+                                <div className="row">
+                                <div className="col-sm-1 col-md-1">
+                                    <button type="button" className="btn btn-link"><strong>Upvote</strong></button>
+                                </div>
+                                <div className="col-sm-1 col-md-1">
+                                    <button type="button" className="btn btn-link"><strong>Share</strong></button>
+                                </div>
+                                <div className="col-sm-1 col-md-1">
+                                    <button type="button" className="btn btn-link"><strong>Delete</strong></button>
+                                </div>
+                                </div>
+                                <h5><strong>Sharad Sharma</strong></h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nulla accusamus magni ve
+                                </p>
+                                <div className="row">
+                                <div className="col-sm-1 col-md-1" >
+                                    <button type="button" className="btn btn-link"><strong>Upvote</strong></button>
+                                </div>
+                                <div className="col-sm-1 col-md-1" >
+                                    <button type="button" className="btn btn-link"><strong>Share</strong></button>
+                                </div>
+                                <div className="col-sm-1 col-md-1" >
+                                    <button type="button" className="btn btn-link"><strong>Delete</strong></button>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
 
 
 class User extends React.Component {
@@ -160,7 +267,7 @@ class User extends React.Component {
                             <UserViewChat />
                         </div>
                         <div className="user-footer">
-                            <div className="form-group">
+                            <div className="form-group host-chatApp-footer">
                               <textarea type="text" rows="2" onKeyUp={this.handleKeyPress} placeholder="Talk to Lets Venture Team" className="form-control user-chat-text-box" id="chat"></textarea>
                             </div>
                         </div>
@@ -186,6 +293,8 @@ export default class Host extends React.Component {
                     <HostChat />
                 </div>
             </div>
+
+            <ConversationThread />
         </div>
     )
   }
