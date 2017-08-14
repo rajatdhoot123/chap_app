@@ -12,7 +12,7 @@ export default class HostChat extends React.Component {
                         <p className="host-name host-chat-box-header">Mukul Singh</p>
                         <p className="host-designation host-chat-box-header">Director LetsVenture</p>
                     </div>
-                    <div className="panel-body host-chat-panel chat-panel">HOST CHAT PANEL
+                    <div className="panel-body host-chat-panel chat-panel">
                         <ul className="chat-ul">
                             <HostViewChat />
                         </ul>
