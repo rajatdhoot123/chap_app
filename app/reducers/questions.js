@@ -1,14 +1,13 @@
 const initialState = {
   isFetching: false,
-  id: 1,
-  title: 'Ask Me Anything with Mahesh Sharma',
-  description: '',
-  startTime: '',
-  endTime: '',
-  status: '',
-  host: 1,
-  registeredUsers: [2,3],
-  questions: [1]
+  1: {
+    text: 'Hi',
+    author: 1,
+    timestamp: '11:11',
+    votes: 0,
+    share: 0,
+    conversation: [2,3]
+  }
 }
 
 export default function questions (state = initialState, action) {
