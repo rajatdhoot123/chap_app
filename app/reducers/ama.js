@@ -10,6 +10,7 @@ const initialState = {
   registeredUsers: [2,3],
   questions: [1],
   allAMA: [2,3,4,5],
+  currAMA: 2,
   2:{
     name:"Sharad Sharma",
     day:"Sunday",
