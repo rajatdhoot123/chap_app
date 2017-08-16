@@ -211,3 +211,53 @@ ul {
 
 .time { position:relative; top: 45px; color:#000; font-weight:600;}
 .time2 { float:left; padding-left:0px; color:#000; font-weight:600;}
+
+/* home-view body css */
+.logo {
+    float: left;
+    text-align: right;
+}
+.notbold1 {
+    font-size: 200%;
+    font-weight: 100px;
+    padding-right: 10px;
+}
+
+.new {
+    padding-left: 10px;
+}
+
+.box {
+    background-color: white;
+    width: 100%;
+    border: 1px solid black;
+    padding: 25px;
+    margin: 25px;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+.cover {
+height: 400px;
+margin-bottom: 20px;
+width: 100%;
+display: block;
+}
+
+.thumbnail {
+    height: 200px;
+    width: 100%;
+    display: block;
+}
+
+.nav {
+    padding-left: 100px;
+}
+.circle {
+    stroke-width: 1px;
+}
