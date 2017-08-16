@@ -6,7 +6,7 @@ import HeaderAma from "./HeaderAma";
 import AmaDetail from "./AmaDetail";
 import AdminDashboard from "./AdminDashboard"
 
-export default class Host extends React.Component {
+class Host extends React.Component {
   render() {
     return(
         <div>
@@ -18,42 +18,49 @@ export default class Host extends React.Component {
               </div>
               <HeaderAma/>
               <hr/>
-              <AmaDetail
-                status="Live"
-                sessionName="AMA with Sharad Sharma "
-                data="10am,16th Aug"
-                numQuestion="20"
-                numRegistration="100"/>
-               <hr/>
-              <AmaDetail
-                status="Upcoming"
-                sessionName="AMA with Jay Ahya "
-                data="10am,16th Aug"
-                numQuestion="20"
-                numRegistration="100"/>
-                <hr/>
+               {this.props.ama.allAMA.map((id)=> {
+                 {if(this.props.ama[id].status==="Upcoming"||this.props.ama[id].status==="Live"){
+                  return(
+                        <div>
+                        <AmaDetail
+                        status={this.props.ama[id].status}
+                        sessionName={this.props.ama[id].name}
+                        date={this.props.ama[id].date}
+                        numQuestion={this.props.ama[id].questions}
+                        numRegistration={this.props.ama[id].registrations}/>
+                        <hr></hr>
+                        </div>
+                        )
+                  }}
+                })}
               <div className="row">
                   <h2>Past AMAs</h2>
               </div>
               <HeaderAma />
-              <hr/>
-              <AmaDetail
-                status="completed"
-                sessionName="AMA with Sanjay Jha "
-                data="10am,16th July"
-                numQuestion="120"
-                numRegistration="1000"/>
-              <hr/>
-              <AmaDetail
-                status="completed"
-                sessionName="AMA with Sanjay Jha"
-                data="10am,16th Aug"
-                numQuestion="20"
-                numRegistration="100"/>
-              <hr/>
+              <hr></hr>
+               {this.props.ama.allAMA.map((id)=> {
+                 {if(this.props.ama[id].status==="Completed"){
+                  return(
+                    <div>
+                    <AmaDetail
+                        status={this.props.ama[id].status}
+                        sessionName={this.props.ama[id].name}
+                        date={this.props.ama[id].date}
+                        numQuestion={this.props.ama[id].questions}
+                        numRegistration={this.props.ama[id].registrations}/>
+                        <hr/>
+                        </div>
+                        )
+                  }}
+                })}
+                <hr/>
           </div>
       </div>
     )
   }
 }
- connect()(Host);
+
+const mapStateToProps = state => {
+  return state
+};
+export default connect(mapStateToProps)(Host);
