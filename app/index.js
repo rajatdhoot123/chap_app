@@ -4,6 +4,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { store } from "./store";
 import { Host, Founder, Admin, Home } from "./components";
 import { Provider, connect } from "react-redux";
+import {ref} from './config'
+
+ref.once('value').then((snapshot) => {
+  console.log(snapshot.val()[1])
+})
 
 class App extends Component {
   render() {
