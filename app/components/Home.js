@@ -16,7 +16,6 @@ class Home extends React.Component {
       <div className="nav">
           <Link to="/host">Host View</Link>
           <Link to="/admin">Admin View</Link>
-          <Link to="/founder">Founder View</Link>
         </div>
         <Header />
 

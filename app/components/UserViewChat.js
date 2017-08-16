@@ -1,5 +1,4 @@
 import React from 'react'
-import { store } from '../store'
 
 const ctime = "13:32";
 const UserChatTime = (props) => <span className="chat-time">{props.time}</span>
@@ -19,7 +18,7 @@ export default class UserViewChat extends React.Component {
                     <div className="chat-message-content clearfix">
                         <UserChatTime time={ctime}/>
                       <h5 className="user-name">Marco Biedermann</h5>
-                      <UserInput userText={store.getState().questions[23].text}/>
+                      <UserInput userText={userTex}/>
                     </div>
                 </div>
                 <hr></hr>

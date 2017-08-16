@@ -4,10 +4,10 @@ import Header from './Header.js'
 import ChatHeader from './ChatHeader'
 import HostChat from './HostChat'
 import User from './User'
-import { store } from '../store'
 
 const timeLeft = "09:00"
 export const UserName = (props) => { return (<div>{props.name}</div>)}
+
 
 export default class Host extends React.Component {
   render() {
