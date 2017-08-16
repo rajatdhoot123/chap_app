@@ -5,12 +5,15 @@ const FETCHING_USER_FAILURE = "FETCHING_USER_FAILURE";
 const FETCHING_USER_SUCCESS = "FETCHING_USER_SUCCESS";
 const REMOVE_FETCHING_USER = "REMOVE_FETCHING_USER";
 
+import action from "../actions/actions";
+
 export const authUser = id => {
   return {
     type: AUTH_USER,
     id: id
   };
 };
+
 
 const initialState = {
   1: {
@@ -23,6 +26,7 @@ const initialState = {
   isAuthed: "true",
   error: ""
 };
+import React from 'react'
 
 export default function users(state = initialState, action) {
   switch (action.type) {

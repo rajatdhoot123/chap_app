@@ -29,11 +29,13 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "firebase-tools": "^3.9.2",
     "html-webpack-plugin": "^2.30.1",
     "webpack": "^3.4.1",
     "webpack-dev-server": "^2.6.1"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "css-loader": "^0.28.4",
     "history": "^4.6.3",
     "react": "^15.6.1",
@@ -41,6 +43,7 @@
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.1.2",
     "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
     "style-loader": "^0.18.2",
     "tachyons": "^4.7.4",
     "tachyons-cli": "^1.0.11"

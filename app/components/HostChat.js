@@ -1,9 +1,28 @@
 import React from "react"
 import  HostViewChat  from './HostViewChat'
-
+import { connect } from "react-redux";
+import { updateHostChat } from '../actions/actions'
 
 
 export default class HostChat extends React.Component {
+    constructor(props){
+        super(props)
+
+        this.handleHostText = this.handleHostText.bind(this)
+        this.handleKeyPress = this.handleKeyPress.bind(this)
+    }
+
+    handleKeyPress(e){
+        if(e.which == 13 && !e.shiftKey){
+            console.log(this.props.text)
+        }
+    }
+
+    handleHostText(e){
+        this.props.updateHostText(e.target.value)
+    }
+
+
     render() {
         return (
             <div className="col-sm-8 col-md-8 chat-col">
@@ -19,7 +38,15 @@ export default class HostChat extends React.Component {
                     </div>
                     <div className="host-footer">
                         <div className="form-group host-chatApp-footer">
-                            <textarea type="text" rows="2" onKeyUp={this.handleKeyPress} placeholder="Enter Your Reply Here" className="form-control host-chat-text-box" id="chat"></textarea>
+                            <textarea
+                            type="text"
+                            rows="2"
+                            onChange={this.handleHostText}
+                            onKeyUp={this.handleKeyPress}
+                            placeholder="Enter Your Reply Here"
+                            className="form-control host-chat-text-box"
+                            id="chat">
+                            </textarea>
                         </div>
                     </div>
                 </div>
@@ -27,3 +54,18 @@ export default class HostChat extends React.Component {
         )
     }
 }
+
+
+const mapStateToProps = (state) => ({
+    text : state.updateHostChat.hostText
+})
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateHostText : (input) => dispatch(updateHostChat(input)),
+    }
+}
+
+
+
+module.exports = connect(mapStateToProps,mapDispatchToProps)(HostChat);
