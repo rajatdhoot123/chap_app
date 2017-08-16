@@ -7,8 +7,17 @@ const initialState = {
     votes: 0,
     share: 0,
     conversation: [2,3]
-  }
+  },
+    2: {
+    text: 'Hi',
+    author: 2,
+    timestamp: '11:11',
+    votes: 0,
+    share: 0,
+    conversation: [2,3]
+  },
 }
+
 
 export default function questions (state = initialState, action) {
   switch(action.type) {

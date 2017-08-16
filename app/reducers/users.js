@@ -5,8 +5,6 @@ const FETCHING_USER_FAILURE = "FETCHING_USER_FAILURE";
 const FETCHING_USER_SUCCESS = "FETCHING_USER_SUCCESS";
 const REMOVE_FETCHING_USER = "REMOVE_FETCHING_USER";
 
-import action from "../actions/actions";
-
 export const authUser = id => {
   return {
     type: AUTH_USER,
@@ -18,7 +16,11 @@ export const authUser = id => {
 const initialState = {
   1: {
     name: "Mahesh Sharma",
-    description: "Director, Let's Venture"
+    description: "Director, Let's Venture",
+  },
+  2 : {
+    name: "Rajat Dhoot",
+    description: "CoWorker",
   },
   isFetching: false,
   type: "host",

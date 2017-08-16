@@ -1,8 +1,6 @@
 import React from "react"
 import  HostViewChat  from './HostViewChat'
 import { connect } from "react-redux";
-import { updateHostChat } from '../actions/actions'
-
 
 export default class HostChat extends React.Component {
     constructor(props){

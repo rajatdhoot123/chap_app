@@ -1,5 +1,4 @@
 import React from "react"
-import { updateUserChat } from '../actions/actions'
 import UserViewChat from './UserViewChat'
 import { connect } from "react-redux";
 
