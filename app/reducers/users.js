@@ -26,7 +26,6 @@ const initialState = {
   isAuthed: "true",
   error: ""
 };
-import React from 'react'
 
 export default function users(state = initialState, action) {
   switch (action.type) {

@@ -14,12 +14,12 @@ export default class HostChat extends React.Component {
 
     handleKeyPress(e){
         if(e.which == 13 && !e.shiftKey){
-            console.log(this.props.text)
+
         }
     }
 
     handleHostText(e){
-        this.props.updateHostText(e.target.value)
+        /*this.props.updateHostText(e.target.value)*/
     }
 
 
@@ -56,16 +56,16 @@ export default class HostChat extends React.Component {
 }
 
 
-const mapStateToProps = (state) => ({
+/*const mapStateToProps = (state) => ({
     text : state.updateHostChat.hostText
 })
-
-const mapDispatchToProps = (dispatch) => {
+*/
+/*const mapDispatchToProps = (dispatch) => {
     return {
         updateHostText : (input) => dispatch(updateHostChat(input)),
     }
 }
 
+*/
 
-
-module.exports = connect(mapStateToProps,mapDispatchToProps)(HostChat);
+module.exports = connect()(HostChat);

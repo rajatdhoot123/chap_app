@@ -37,14 +37,16 @@ order.map((id) => {
 
 
 export default class UserViewChat extends React.Component {
+
     render() {
 /*        const {users, questions} = this.props
         users[questions[id].author].name*/
         if(!this.props.isFetched){
+            console.log(this.props,"aaaaaaaaaaaaaaaaaaaaa")
             return <div> Loading </div>
         }
         else {
-            console.log(this.props,";;;;;;;;;;;;;;;;;;;;;;;;;;")
+            console.log(this.props,"aaaaaaaaaaaaaaaaaaaaa")
         return(
             <div>
                 {
@@ -96,8 +98,9 @@ export default class UserViewChat extends React.Component {
 
 
 const mapStateToProps = (state) => ({
-  isFetched : state.isFetching,
+  isFetched : state,
   questions : state
 })
+
 
 module.exports = connect(mapStateToProps)(UserViewChat);

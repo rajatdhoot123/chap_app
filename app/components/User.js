@@ -19,7 +19,7 @@ export default class User extends React.Component {
 
     handleEnter(e){
         if(e.which == 13 && !e.shiftKey){
-            console.log(this.props.text)
+            //console.log(this.props.text)
         }
     }
 
@@ -36,7 +36,7 @@ export default class User extends React.Component {
                                 <div className="form-group host-chatApp-footer">
                                   <textarea
                                   onChange={this.handleUserTextarea}
-                                  value={this.props.userText}
+
                                   type="text"
                                   rows="2"
                                   onKeyPress={this.handleEnter}
@@ -53,14 +53,14 @@ export default class User extends React.Component {
 }
 
 
-const mapStateToProps = (state) => ({
+/*const mapStateToProps = (state) => ({
   text : state.updateUserChat.userText
-})
+})*/
 
-const mapDispatchToProps = (dispatch) => {
+/*const mapDispatchToProps = (dispatch) => {
     return {
         updateUserText : (input) => dispatch(updateUserChat(input)),
     }
-}
+}*/
 
-module.exports = connect(mapStateToProps,mapDispatchToProps)(User);
+module.exports = connect()(User);
