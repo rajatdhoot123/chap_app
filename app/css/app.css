@@ -259,5 +259,6 @@ display: block;
     padding-left: 100px;
 }
 .circle {
-    stroke-width: 1px;
+    width: 100px;
+    height: 100px;
 }
