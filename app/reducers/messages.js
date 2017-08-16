@@ -17,9 +17,9 @@ const initialState = {
     votes: 0,
     share: 0,
   },
-  3:  {
-    text: 'Hi',
-    author: 1,
+  3: {
+    text: 'Created By Rajat Dhoot',
+    author: 2,
     timestamp: '11:11',
     votes: 0,
     share: 0,

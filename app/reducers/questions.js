@@ -1,5 +1,8 @@
+const SELECTED_QUESTION = 'SELECTED_QUESTION';
+
 const initialState = {
   isFetching: false,
+  selectedQuestion : 1,
   1: {
     text: 'Hi',
     author: 1,
@@ -19,9 +22,23 @@ const initialState = {
 }
 
 
+
+export const selectedQuestion = qid => {
+  return {
+    type: SELECTED_QUESTION,
+    qid: qid
+  };
+};
+
+
+
 export default function questions (state = initialState, action) {
   switch(action.type) {
-
+    case SELECTED_QUESTION :
+    return {
+        ...state,
+        selectedQuestion : action.qid,
+      };
     default:
       return state
   }
