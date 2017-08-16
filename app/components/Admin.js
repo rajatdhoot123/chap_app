@@ -1,246 +1,54 @@
 import React from "react";
-import Header from "./Header"
+import Header from "./Header";
+import HeaderAma from "./HeaderAma";
+import AmaDetail from "./AmaDetail";
+import AdminDashboard from "./AdminDashboard"
 
 export default class Host extends React.Component {
   render() {
     return(
-        <body>
-          {/*<div className="page-header">
-              <div className="container">
-                  <div className="row">
-                    <h2 className="text-right">Admin View</h2>
-                  </div>
-              </div>
-          </div>*/}
+        <div>
           <Header />
           <div className="container">
-              <div className="row">
-                  <h2>AMA-Admin Dashboard</h2>
-                  <h2></h2>
-              </div>
+              <AdminDashboard />
               <div className="row">
                   <h2>Live & Upcoming AMAs</h2>
               </div>
-              <div className="row">
-                 <div className="col-sm-2"><h4>Session Name</h4></div>
-                 <div className="col-sm-2"><h4>Date of AMA</h4></div>
-                 <div className="col-sm-2"><h4>Questions</h4></div>
-                 <div className="col-sm-2"><h4>Registrations</h4></div>
-                 <div className="col-sm-2"><h4>Status</h4></div>
-                 <div className="col-sm-2"><h4>Actions</h4></div>
-              </div>
-              <div className="row">
-                 <hr/>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          AMA with Sharad Sharma
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          10am,16th Aug
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          20
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          100
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          Upcoming
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                         <a href="modify.html">Modify</a>
-                      </div>
-                      <div className="col-sm-12">
-                          <a href="registration.html">See Registration(25)</a>
-                      </div>
-                      <div className="col-sm-12">
-                          <a href="#myModal"  data-toggle="modal">Host URL/Audience URL</a>
-                      </div>
-                      <div className="col-sm-12">
-                          <a href="unPublish.html">Unpublish</a>
-                      </div>
-                 </div>
-              </div>
-                <div className="row">
-                 <hr/>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          AMA with Jay Ahya
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          10am,12th Aug
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          12
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          120
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          Live
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                         <a href="modify.html">Modify</a>
-                      </div>
-                      <div className="col-sm-12">
-                          <a href="registration.html">See Registration(200)</a>
-                      </div>
-                      <div className="col-sm-12">
-                          <a href="#myModal"  data-toggle="modal">Host URL/Audience URL</a>
-                      </div>
-                      <div className="col-sm-12">
-                          <a href="unPublish.html">Unpublish</a>
-                      </div>
-                 </div>
-              </div>
+              <HeaderAma/>
+              <hr/>
+              <AmaDetail
+                status="Live"
+                sessionName="AMA with Sharad Sharma "
+                data="10am,16th Aug"
+                numQuestion="20"
+                numRegistration="100"/>
+               <hr/>
+              <AmaDetail
+                status="Upcoming"
+                sessionName="AMA with Jay Ahya "
+                data="10am,16th Aug"
+                numQuestion="20"
+                numRegistration="100"/>
+                <hr/>
               <div className="row">
                   <h2>Past AMAs</h2>
               </div>
-               <div className="row">
-                 <div className="col-sm-2"><h4>Session Name</h4></div>
-                 <div className="col-sm-2"><h4>Date of AMA</h4></div>
-                 <div className="col-sm-2"><h4>Questions</h4></div>
-                 <div className="col-sm-2"><h4>Registrations</h4></div>
-                 <div className="col-sm-2"><h4>Status</h4></div>
-                 <div className="col-sm-2"><h4>Actions</h4></div>
-              </div>
-              <div className="row">
-                 <hr/>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          AMA with Sanjay Jha
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          12noon,12th July
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          12
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          80
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          Completed
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                         <a href="modify.html">Modify</a>
-                      </div>
-                      <div className="col-sm-12">
-                          <a href="registration.html">See Registration(120)</a>
-                      </div>
-                      <div className="col-sm-12">
-                          <a href="unPublish.html">Unpublish</a>
-                      </div>
-                 </div>
-              </div>
-                 <div className="row">
-                 <hr/>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          AMA with Sanjay Jha
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          12noon,12th July
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          12
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          80
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          Completed
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                         <a href="modify.html">Modify</a>
-                      </div>
-                      <div className="col-sm-12">
-                          <a href="registration.html">See Registration(1200)</a>
-                      </div>
-                      <div className="col-sm-12">
-                          <a href="unPublish.html">Unpublish</a>
-                      </div>
-                 </div>
-              </div>
-               <div className="row">
-                 <hr/>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          AMA with Sanjay Jha
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          12noon,12th July
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          12
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          80
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                          Completed
-                      </div>
-                 </div>
-                 <div className="col-sm-2">
-                     <div className="col-sm-12">
-                         <a href="modify.html">Modify</a>
-                      </div>
-                      <div className="col-sm-12">
-                          <a href="registration.html">See Registration(123)</a>
-                      </div>
-                      <div className="col-sm-12">
-                          <a href="unPublish.html">Unpublish</a>
-                      </div>
-                 </div>
-              </div>
+              <HeaderAma />
+              <hr/>
+              <AmaDetail
+                status="completed"
+                sessionName="AMA with Sanjay Jha "
+                data="10am,16th July"
+                numQuestion="120"
+                numRegistration="1000"/>
+              <hr/>
+              <AmaDetail
+                status="completed"
+                sessionName="AMA with Sanjay Jha"
+                data="10am,16th Aug"
+                numQuestion="20"
+                numRegistration="100"/>
+              <hr/>
           </div>
           <div id="myModal" className="modal fade">
               <div className="modal-dialog">
@@ -257,7 +65,7 @@ export default class Host extends React.Component {
                                   <input
                                       className="form-control"
                                       id="audienceUrlInput"
-                                      tye="text"
+                                      type="text"
                                       value="www.letsventure.com/ama12/audience/asd12312"
                                   />
                               </div>
@@ -265,7 +73,7 @@ export default class Host extends React.Component {
                                   <button
                                       className="btn"
                                       id="audienceUrlInputCopy"
-                                      tye="button"
+                                      type="button"
                                       value="www.letsventure.com/ama12/audience/asd12312">
                                       copy
                                   </button>
@@ -279,7 +87,7 @@ export default class Host extends React.Component {
                                   <input
                                       className="form-control"
                                       id="hostUrlInput"
-                                      tye="text"
+                                      type="text"
                                       value="www.letsventure.com/ama12/audience/asd12312"
                                   />
                               </div>
@@ -287,7 +95,7 @@ export default class Host extends React.Component {
                                   <button
                                       className="btn"
                                       id="hostUrlInputCopy"
-                                      tye="button"
+                                      type="button"
                                       value="www.letsventure.com/ama12/host/asd12312">
                                       copy
                                   </button>
@@ -305,7 +113,7 @@ export default class Host extends React.Component {
           <footer>
               <address></address>
          </footer>
-      </body>
+      </div>
     )
   }
 }
