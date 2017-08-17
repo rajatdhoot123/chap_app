@@ -3,6 +3,7 @@ import { UserName } from './Host'
 import { connect } from 'react-redux';
 
 
+
 const htime = "01:11";
 const HostChatTime = (props) => <span className="chat-time">{props.time}</span>
 
@@ -15,6 +16,7 @@ export default class HostViewChat extends React.Component {
             <div>
             {
                 questions[selectedQue].conversation.map(function (cid){
+                    console.log(cid,"aaaaaaaaaaaaaaaaaaaaa")
                 return(
                     <li key={cid}>
                     <div className="bubble">
@@ -52,7 +54,7 @@ const mapStateToProps = state => ({
     questions: state.questions,
     users: state.users,
     selectedQue : state.questions.selectedQuestion,
-    message : state.messages
+    message : state.messages,
 });
 
 module.exports = connect(mapStateToProps)(HostViewChat);
