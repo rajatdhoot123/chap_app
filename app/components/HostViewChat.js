@@ -11,18 +11,19 @@ const HostChatTime = (props) => <span className="chat-time">{props.time}</span>
 export default class HostViewChat extends React.Component {
 
     render() {
-        const { users, questions, questionsList, selectedQue ,message} = this.props;
+        const { users, questions, questionsList, selectedQuestion} = this.props;
+        const messages = this.props.messages[selectedQuestion]
         return (
             <div>
             {
-                questions[selectedQue].conversation.map(function (cid){
-                    console.log(cid,"aaaaaaaaaaaaaaaaaaaaa")
+                Object.keys(messages).map(function (id){
+                    console.log(id,"aaaaaaaaaaaaaaaaaaaaa")
                 return(
-                    <li key={cid}>
+                    <li key={id}>
                     <div className="bubble">
-                    <HostChatTime time={message[cid].timestamp}/>
-                    <span className="personName"><UserName name={users[message[cid].author].name}/></span> <br></br>
-                    <span className="personSay">{message[cid].text}</span>
+                    <HostChatTime time={messages[id].timestamp}/>
+                    <span className="personName"><UserName name={users[messages[id].author].name}/></span> <br></br>
+                    <span className="personSay">{messages[id].text}</span>
                     </div>
                 </li>
                 )
@@ -50,11 +51,11 @@ export default class HostViewChat extends React.Component {
 
 const mapStateToProps = state => ({
     amaId: state.ama.id,
-    questionsList: state.ama.questions,
-    questions: state.questions,
+    questionsList: Object.keys(state.questions[state.ama.id]),
+    questions: state.questions[state.ama.id],
     users: state.users,
-    selectedQue : state.questions.selectedQuestion,
-    message : state.messages,
+    selectedQuestion : state.questions.selectedQuestion,
+    messages : state.messages,
 });
 
 module.exports = connect(mapStateToProps)(HostViewChat);

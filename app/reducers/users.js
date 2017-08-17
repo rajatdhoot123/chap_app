@@ -14,11 +14,11 @@ export const authUser = id => {
 
 
 const initialState = {
-  1: {
+  author1: {
     name: "Mahesh Sharma",
     description: "Director, Let's Venture",
   },
-  2 : {
+  author2 : {
     name: "Rajat Dhoot",
     description: "CoWorker",
   },

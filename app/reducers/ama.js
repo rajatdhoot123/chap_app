@@ -1,6 +1,6 @@
 const initialState = {
   isFetching: false,
-  id: 1,
+  id: 'ama1',
   title: 'Ask Me Anything with Mahesh Sharma',
   description: '',
   startTime: '',

@@ -14,8 +14,10 @@ export default class HostChat extends React.Component {
 
     handleKeyPress(e){
         if(e.which == 13 && !e.shiftKey){
+            e.preventDefault()
             this.props.dispatch(addNewMessage(e.target.value,e.target.id,this.props.selectedQuestion,7))
             this.props.dispatch(newConversationId(6,this.props.selectedQuestion))
+            this.props.dispatch(addNewText(''))
         }
     }
 
@@ -43,6 +45,7 @@ export default class HostChat extends React.Component {
                             rows="2"
                             onChange={this.handleHostText}
                             onKeyUp={this.handleKeyPress}
+                            value={this.props.newMessage}
                             placeholder="Enter Your Reply Here"
                             className="form-control host-chat-text-box"
                             id={this.props.hostId}>
@@ -59,6 +62,7 @@ export default class HostChat extends React.Component {
 const mapStateToProps = (state) => ({
     hostId : state.ama.host,
     selectedQuestion : state.questions.selectedQuestion,
+    newMessage: state.messages.newMessage
 })
 
 /*const mapDispatchToProps = (dispatch) => {
