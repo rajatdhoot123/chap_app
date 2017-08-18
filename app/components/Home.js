@@ -120,17 +120,16 @@ class Home extends React.Component {
 
               <div
                 className={this.state.cName}
-                onClick={this.toggleDisplay}
                 id="box"
               >
-                <div className="col-md-2 col-sm-2">
+                <div className="col-md-2 col-sm-2" onClick={this.toggleDisplay}>
                   <img
                     className="circle img-circle"
                     src={this.props.ama[this.state.id].url}
                     alt="Cinque Terre"
                   />
                 </div>
-                <div className="col-md-8 col-sm-8">
+                <div className="col-md-8 col-sm-8" onClick={this.toggleDisplay}>
                   <h3>
                     {" "}AMA with {this.props.ama[this.state.id].name}
                   </h3>
@@ -145,7 +144,7 @@ class Home extends React.Component {
                     Remind Me
                   </button>
                 </div>
-                <div className="col-md-12 col-sm-12">
+                <div className="col-md-12 col-sm-12" onClick={this.toggleDisplay}>
                   <hr />
                   <div className="col-md-8 col-sm-8 ">
                     <p>
