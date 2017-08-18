@@ -58,8 +58,8 @@ export default class UserViewChat extends React.Component {
 
 const mapStateToProps = state => ({
     amaId: state.ama.id,
-    questionsList: state.ama.questions,
-    questions: state.questions,
+    questionsList: Object.keys(state.questions[state.ama.id]),
+    questions: state.questions[state.ama.id],
     users: state.users,
 });
 
