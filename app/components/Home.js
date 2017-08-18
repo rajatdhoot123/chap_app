@@ -7,11 +7,26 @@ import css from "../css/app.css";
 
 
 class Home extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      loading: true
+    };
+  }
   componentDidMount() {
-    console.log(this.props, "props");
+    console.log(this.props, "props-------");
+    this.setState({
+          loading: false
+        })
   }
 
   render() {
+    if (this.state.loading) {
+      return <h1>loading......</h1>;
+    } else {
+      console.log("this.props.ama.2.name",this.props.ama[2].name)
+          console.log("after props: ",this.props)
     return (
       <div>
       <div className="nav">
@@ -88,8 +103,8 @@ class Home extends React.Component {
                 </svg>
               </div>
               <div className="col-md-8 col-sm-8">
-                <h3> AMA with Sharad Sharma</h3>
-                <p>Sunday, 10am to 12am</p>
+                <h3> AMA with  {this.props.ama[2].name}</h3>
+                <p>{this.props.ama[2].day}, {this.props.ama[2].time}</p>
                 <p>Moderated By: LetsVenture Team</p>
               </div>
               <div className="col-md-1 col-sm-1 right">
@@ -202,6 +217,7 @@ class Home extends React.Component {
         </div>
       </div>
     );
+}
   }
 }
 
