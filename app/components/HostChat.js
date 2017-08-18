@@ -15,8 +15,8 @@ export default class HostChat extends React.Component {
     handleKeyPress(e){
         if(e.which == 13 && !e.shiftKey){
             e.preventDefault()
-            this.props.dispatch(addNewMessage(e.target.value,e.target.id,this.props.selectedQuestion,7))
-            this.props.dispatch(newConversationId(6,this.props.selectedQuestion))
+            this.props.dispatch(addNewMessage(e.target.value,e.target.id,this.props.selectedQuestion,"message31"))
+            //this.props.dispatch(newConversationId(6,this.props.selectedQuestion))
             this.props.dispatch(addNewText(''))
         }
     }

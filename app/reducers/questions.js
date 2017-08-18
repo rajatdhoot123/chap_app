@@ -22,14 +22,14 @@ const initialState = {
   }
 };
 
-export const newConversationId = (cid, selectedQuestion) => {
+/*export const newConversationId = (cid, selectedQuestion) => {
   return {
     type: NEW_CONVERSATION,
     cid,
     selectedQuestion
   };
 };
-
+*/
 export const selectedQuestion = qid => {
   return {
     type: SELECTED_QUESTION,
@@ -38,14 +38,15 @@ export const selectedQuestion = qid => {
 };
 
 export default function questions(state = initialState, action) {
+
   switch (action.type) {
     case SELECTED_QUESTION:
       return {
         ...state,
-        selectedQuestion: action.qid
+        selectedQuestion : action.qid
       };
-    case NEW_CONVERSATION:
-      const prevQuestion = state[action.selectedQuestion];
+    /*case NEW_CONVERSATION:
+      const prevQuestion = state.ama1[action.selectedQuestion];
       const conv = prevQuestion.conversation;
       const newConv = [...conv, action.cid];
       return {
@@ -54,7 +55,7 @@ export default function questions(state = initialState, action) {
           ...prevQuestion,
           conversation: newConv
         }
-      };
+      };*/
     default:
       return state;
   }

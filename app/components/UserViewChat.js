@@ -31,7 +31,7 @@ const UserInput = props => {
 export default class UserViewChat extends React.Component {
 
     handleChatDiv(qid){
-        console.log(qid)
+
         this.props.dispatch(selectedQuestion(qid))
     }
 

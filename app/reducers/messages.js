@@ -60,7 +60,17 @@ export default function questions(state = initialState, action) {
       };
 
     case "ADD_NEW_MSG":
+      const allMessage = state[action.selectedQuestion];
+      const newMessage = {
+        author: action.hostId,
+        text: action.msg,
+        timestamp: "11:00"
+      };
       return {
+        ...state,
+        [action.selectedQuestion]: { ...allMessage, [action.msgId]: newMessage }
+      };
+    /*return {
         ...state,
         [action.msgId]: {
           text: action.msg,
@@ -72,7 +82,7 @@ export default function questions(state = initialState, action) {
         newHostMsg: action.msg,
         hostId: action.hostId,
         selectedQuestion: action.selectedQuestion
-      };
+      };*/
     default:
       return state;
   }
