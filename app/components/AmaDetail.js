@@ -4,6 +4,7 @@ import AmaPostAction from "./AmaPostAction";
 
 export default class AmaDetail extends React.Component {
     render() {
+        console.log(this.props, 'props')
         return (
             <div className="row">
                <div className="col-sm-2">
