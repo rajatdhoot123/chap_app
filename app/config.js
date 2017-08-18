@@ -10,5 +10,8 @@ var config = {
 
 firebase.initializeApp(config);
 
-export const ref = firebase.database().ref();
+export const ref = firebase.database().ref("ama");
+export const refQue = firebase.database().ref("questions");
+export const refMsg = firebase.database().ref("messages");
+export const refUsers = firebase.database().ref("users");
 export const firebaseAuth = firebase.auth;

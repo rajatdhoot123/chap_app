@@ -2,6 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 import { store } from "../store";
 import { selectedQuestion } from '../reducers/questions'
+import { refQue } from '../config'
+
+
+refQue.on('value',(snapshot) => {
+  var myObj = snapshot.val().ama1;
+  for (const [k, v] of Object.entries(myObj)) {
+  console.log(`Here is key `,k, `and here is value`, v);
+}
+})
 
 const ctime = "13:32";
 const UserChatTime = props =>

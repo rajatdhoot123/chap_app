@@ -20,6 +20,14 @@ const initialState = {
     share: 0,
     conversation: [33,35,37]
   },
+  3: {
+    text: 'Hi',
+    author: 2,
+    timestamp: '11:11',
+    votes: 0,
+    share: 0,
+    conversation: [33,35,37]
+  },
 }
 
 
