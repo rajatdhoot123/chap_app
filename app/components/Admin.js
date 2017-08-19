@@ -26,6 +26,7 @@ class Host extends React.Component {
                         status={this.props.ama[id].status}
                         sessionName={this.props.ama[id].name}
                         date={this.props.ama[id].date}
+                        id={id}
                         numQuestion={this.props.ama[id].questions}
                         numRegistration={this.props.ama[id].registrations}/>
                         <hr></hr>

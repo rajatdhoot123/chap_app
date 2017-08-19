@@ -28,6 +28,7 @@ class App extends Component {
             <Route exact path="/founder" component={Founder} />
             <Route exact path="/admin" component={Admin} />
             <Route exact path="/admin/ama" component={Ama} />
+            <Route exact path="/admin/ama/:id/modify" component={Ama} />
           </Switch>
         </Router>
       </Provider>

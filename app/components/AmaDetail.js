@@ -31,8 +31,22 @@ export default class AmaDetail extends React.Component {
                                 {this.props.status}
                            </div>
                 </div>
-               {this.props.status==="Upcoming"||this.props.status==="Live" ? <AmaPreAction />
-                   : <AmaPostAction />
+               {this.props.status==="Upcoming"||this.props.status==="Live" ?
+                   <AmaPreAction
+                      id={this.props.id}
+                      sessionName={this.props.sessionName}
+                      date={this.props.date}
+                      numQuestion={this.props.numQuestion}
+                      numRegistration={this.props.numRegistration}
+                      status={this.props.status}/>
+                    :
+                    <AmaPostAction
+                      id={this.props.id}
+                      sessionName={this.props.sessionName}
+                      date={this.props.date}
+                      numQuestion={this.props.numQuestion}
+                      numRegistration={this.props.numRegistration}
+                      status={this.props.status}/>
                   }
             </div>
         )
