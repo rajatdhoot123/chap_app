@@ -1,6 +1,55 @@
 const ADD_NEW_TEXT = "ADD_NEW_TEXT";
 const ADD_NEW_MSG = "ADD_NEW_MSG";
 
+import {saveNewMessage} from '../api/api'
+
+
+
+
+
+/*var queRef1 = refMsg.child('question1');
+var queRef2 = refMsg.child('question2');
+*/
+
+/*var queRef1 = queRef1.push({
+ author : 'pravin',
+ timeStamp : '8:50',
+ text : 'Christopher in Message',
+});
+
+
+var queRef2 = queRef2.push({
+  author : 'pravin',
+  timeStamp : '8:50',
+  text : 'Christopher in Message IN Question 2',
+})
+
+var uref = ref.push({
+  description: 'I eat too much ice cream',
+  startTime : '8:50',
+  title: 'Christopher',
+});
+*/
+/*queRef2.on('value', function(snapshot) {
+    //snapshot.forEach(function(childSnapshot) {
+      //var childData = childSnapshot.val();
+      console.log(snapshot,"childData")
+    //});
+});
+
+*/
+
+
+
+export const addAllMessage = (messages, selectedQuestion) => {
+  console.log(selectedQuestion,"aaaaaaaaaaaaaaaa");
+  return {
+    type : "ADD_ALL_MSG",
+    allMsg : messages,
+    selectedQuestion
+  }
+}
+
 export const addNewText = text => {
   return {
     type: ADD_NEW_TEXT,
@@ -8,15 +57,21 @@ export const addNewText = text => {
   };
 };
 
-export const addNewMessage = (msg, hostId, selectedQuestion, msgId) => {
+export const addNewMessage = (message) => {
   return {
     type: ADD_NEW_MSG,
-    msg,
-    hostId,
-    selectedQuestion,
-    msgId
+    author: message.author,
+    text: message.text,
+    timestamp: "11:00"
   };
 };
+
+export const addMessage = message => dispatch => {
+  const messageWithId = saveNewMessage(message)
+  messageWithId.msgPromise.then(() => {
+    console.log('Saved in Thunk')
+  })
+}
 
 const initialState = {
   msgId: 0,
@@ -61,6 +116,7 @@ export default function questions(state = initialState, action) {
 
     case "ADD_NEW_MSG":
       const allMessage = state[action.selectedQuestion];
+
       const newMessage = {
         author: action.hostId,
         text: action.msg,
@@ -70,19 +126,12 @@ export default function questions(state = initialState, action) {
         ...state,
         [action.selectedQuestion]: { ...allMessage, [action.msgId]: newMessage }
       };
-    /*return {
+      case "ADD_ALL_MSG" :
+      return {
         ...state,
-        [action.msgId]: {
-          text: action.msg,
-          author: action.hostId,
-          timestamp: "11:11",
-          votes: 0,
-          share: 0
-        },
-        newHostMsg: action.msg,
-        hostId: action.hostId,
-        selectedQuestion: action.selectedQuestion
-      };*/
+        [action.selectedQuestion] : {...action.allMsg},
+      };
+
     default:
       return state;
   }

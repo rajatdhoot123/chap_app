@@ -4,8 +4,45 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { store } from "./store";
 import { Host, Founder, Admin,Home,Ama} from "./components";
 import { Provider, connect } from "react-redux";
+import { listenToQuestions, listenToMessages } from './api/api'
 
-import { ref } from './config'
+import { ref , refQue , refMsg } from './config'
+
+var queRef1 = refMsg.child('question1');
+var queRef2 = refMsg.child('question2');
+
+
+
+
+listenToQuestions();
+listenToMessages()
+
+
+/*var queRef1 = queRef1.push({
+ author : 'pravin',
+ timeStamp : '8:50',
+ text : 'Christopher in Message',
+});
+
+
+var queRef2 = queRef2.push({
+  author : 'pravin',
+  timeStamp : '8:50',
+  text : 'Christopher in Message IN Question 2',
+})
+
+var uref = ref.push({
+  description: 'I eat too much ice cream',
+  startTime : '8:50',
+  title: 'Christopher',
+});
+*/
+queRef2.on('value', function(snapshot) {
+    //snapshot.forEach(function(childSnapshot) {
+      //var childData = childSnapshot.val();
+      console.log(snapshot,"childData")
+    //});
+});
 
 class App extends Component {
   render() {
