@@ -19,7 +19,7 @@ export default class Host extends React.Component {
             <ChatHeader time={timeLeft}/>
                 <div className="row">
                     <User type={"host"}/>
-                    <HostChat />
+                    <HostChat type={"host"}/>
                 </div>
             </div>
             <ConversationThread />

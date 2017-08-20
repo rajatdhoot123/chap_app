@@ -22,7 +22,7 @@ export default class HostChat extends React.Component {
             this.props.dispatch(
                 addMessage({
                     qid: selectedQuestion,
-                    author: hostId,
+                    author: e.target.id,
                     text: newMessage.trim(),
                 })
             );
@@ -50,7 +50,8 @@ export default class HostChat extends React.Component {
                     </div>
                     <div className="panel-body host-chat-panel chat-panel">
                         <ul className="chat-ul">
-                            <HostViewChat />
+                        {(this.props.type === 'user') ? <HostViewChat type = {"user"}/> : <HostViewChat  type = {"host"}/>}
+                            {/*<HostViewChat />*/}
                         </ul>
                     </div>
                     <div className="host-footer">
@@ -63,7 +64,8 @@ export default class HostChat extends React.Component {
                                 value={this.props.newMessage}
                                 placeholder="Enter Your Reply Here"
                                 className="form-control host-chat-text-box"
-                                id={this.props.hostId}
+                                //id={(this.props.type === "host") ? this.props.hostId : "userId"}
+                                id={(this.props.type === "host") ? "user2" : "user3"}
                             />
                         </div>
                     </div>

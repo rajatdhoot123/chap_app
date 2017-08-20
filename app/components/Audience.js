@@ -29,7 +29,7 @@ class Audience extends React.Component {
                     <ChatHeader time={timeLeft} />
                     <div className="row">
                         <User type={activeUser}/>
-                        <HostChat />
+                        <HostChat type={"user"} />
                     </div>
                 </div>
                 <ConversationThread />

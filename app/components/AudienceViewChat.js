@@ -33,8 +33,6 @@ export default class UserViewChat extends React.Component {
 
     render() {
         const { users, questions, questionsList, type ,activeUser} = this.props;
-        setTimeout(function(){console.log(activeUser.name,"aaaaaaaaaaaaaaaaaaaaaaaaaaaa")},8000);
-
         if (this.props.isFetched) {
             return <div> Loading </div>;
         } else {

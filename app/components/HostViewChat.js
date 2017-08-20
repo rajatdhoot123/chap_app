@@ -15,21 +15,29 @@ export default class HostViewChat extends React.Component {
     }
 
     render() {
-        const { users, questions, questionsList, selectedQuestion ,isFetching} = this.props;
+        const { users, questions, questionsList, selectedQuestion ,isFetching , type} = this.props;
         const messages = this.props.messages[selectedQuestion];
         if (isFetching) {
         return (<div> Loading </div>)
     }
         else{
+            if (type === "user"){
+                var className1 = "bubble"
+                var className2 = "bubble2"
+            }
+            else {
+                var className1 = "bubble2"
+                var className2 = "bubble"
+            }
         return (
             <div>
             {
                 Object.keys(messages).map(function (id){
                 return(
                     <li key={id}>
-                    <div className="bubble">
+                    <div className={(users[messages[id].author].type === "host") ? className1 : className2 }>
                     <HostChatTime time={messages[id].timestamp}/>
-                    <span className="personName"><UserName name={messages[id].author}/></span> <br></br>
+                    <span className="personName"><UserName name={users[messages[id].author].name}/></span> <br></br>
                     <span className="personSay">{messages[id].text}</span>
                     </div>
                 </li>
