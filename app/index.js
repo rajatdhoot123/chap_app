@@ -15,7 +15,7 @@ var queRef2 = refMsg.child('question2');
 
 
 listenToQuestions();
-listenToMessages()
+listenToMessages();
 
 
 /*var queRef1 = queRef1.push({

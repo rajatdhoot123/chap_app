@@ -3,14 +3,15 @@ import {ref , refMsg} from '../config'
 import {store} from '../store'
 import { addAllMessage } from '../reducers/messages'
 import { addAllUsers } from '../reducers/users'
+import { addAllQuestions } from '../reducers/questions'
 console.log(ref, 'ref')
 
 
 
 export function listenToQuestions() {
-  ref.child('questions/question1').on('value', (snapshot) => {
+  ref.child('questions/ama1').on('value', (snapshot) => {
     const questions = snapshot.val() || {}
-    console.log('questions', questions)
+    store.dispatch(addAllQuestions(questions, false));
   })
 }
 
@@ -27,7 +28,6 @@ export function listenToUsers() {
     ref.child('users').on('value', (snapshot) => {
     const users = snapshot.val() || {}
     store.dispatch(addAllUsers(users));
-    console.log('users', users)
   })
 }
 

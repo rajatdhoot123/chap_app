@@ -12,7 +12,6 @@ listenToUsers();
 
 
 export const addAllUsers = (users) => {
-  console.log(users)
   return {
     type : ADD_ALL_USERS,
     allUsers : users,
