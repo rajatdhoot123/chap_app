@@ -1,7 +1,7 @@
 import React from "react";
 import { UserName } from './Host'
 import { connect } from 'react-redux';
-
+import { listenToMessages } from '../api/api'
 
 
 const htime = "01:11";
@@ -10,9 +10,17 @@ const HostChatTime = (props) => <span className="chat-time">{props.time}</span>
 
 export default class HostViewChat extends React.Component {
 
+    componentDidMount(){
+        listenToMessages();
+    }
+
     render() {
-        const { users, questions, questionsList, selectedQuestion} = this.props;
+        const { users, questions, questionsList, selectedQuestion ,isFetching} = this.props;
         const messages = this.props.messages[selectedQuestion];
+        if (isFetching) {
+        return (<div> Loading </div>)
+    }
+        else{
         return (
             <div>
             {
@@ -45,6 +53,7 @@ export default class HostViewChat extends React.Component {
             </div>
         )
     }
+    }
 }
 
 
@@ -55,6 +64,7 @@ const mapStateToProps = state => ({
     users: state.users,
     selectedQuestion : state.questions.selectedQuestion,
     messages : state.messages,
+    isFetching : state.messages.isFetching
 });
 
 module.exports = connect(mapStateToProps)(HostViewChat);

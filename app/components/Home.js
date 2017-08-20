@@ -56,14 +56,15 @@ class Home extends React.Component {
     if (this.state.loading) {
       return <h1>loading......</h1>;
     } else {
-      console.log("this.props.ama.2.name", this.props.ama[2].name);
-      console.log("after state: ", this.state.id);
+      /*console.log("this.props.ama.2.name", this.props.ama[2].name);
+      console.log("after state: ", this.state.id);*/
       return (
         <div>
           <div className="nav">
             <Link to="/host">Host View</Link>
             <Link to="/admin">Admin View</Link>
             <Link to="/founder">Founder View</Link>
+            <Link to="/audience">Audience View</Link>
           </div>
           <Header />
 

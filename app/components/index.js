@@ -3,4 +3,5 @@ export Founder from './Founder'
 export Admin from './Admin'
 export Home from './Home'
 export Ama from './Ama'
+export Audience from './Audience'
 

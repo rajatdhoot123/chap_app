@@ -18,9 +18,6 @@ const UserChatTime = props =>
         {props.time}
     </span>;
 
-/*const userTex =
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nulla accusamus magni vel debitis numquam qui tempora rem voluptatem delectus!";
-*/
 const UserInput = props => {
     return (
         <p>
@@ -35,32 +32,24 @@ export default class UserViewChat extends React.Component {
     }
 
     render() {
-        const { users, questions, questionsList, type } = this.props;
+        const { users, questions, questionsList, type ,activeUser} = this.props;
+        setTimeout(function(){console.log(activeUser.name,"aaaaaaaaaaaaaaaaaaaaaaaaaaaa")},8000);
 
         if (this.props.isFetched) {
             return <div> Loading </div>;
         } else {
             return (
                 <div>
-                    {questionsList.map(function(qid) {
-                        return (
-                            <div
-                                key={qid}
-                                className="chat-message clearfix"
-                                onClick={this.handleChatDiv.bind(this, qid)}
-                            >
-                                <div className="chat-message-content clearfix">
-                                    <UserChatTime
-                                        time={questions[qid].timestamp}
-                                    />
-                                    <h5 className="user-name">
-                                        {users[questions[qid].author].name}
-                                    </h5>
-                                    <UserInput userText={questions[qid].text} />
-                                </div>
-                            </div>
-                        );
-                    }, this)}
+                    <div
+                        key={"qid"}
+                        className="chat-message clearfix"
+                    >
+                        <div className="chat-message-content clearfix">
+                            <h5 className="user-name">
+                                {activeUser.name}
+                            </h5>
+                        </div>
+                    </div>
                 </div>
             );
         }
@@ -71,7 +60,7 @@ const mapStateToProps = state => ({
     amaId: state.ama.id,
     questionsList: Object.keys(state.questions[state.ama.id]),
     questions: state.questions[state.ama.id],
-    users: state.users
+    users: state.users,
 });
 
 module.exports = connect(mapStateToProps)(UserViewChat);

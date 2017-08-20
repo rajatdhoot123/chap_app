@@ -41,12 +41,12 @@ var uref = ref.push({
 
 
 
-export const addAllMessage = (messages, selectedQuestion) => {
-  console.log(selectedQuestion,"aaaaaaaaaaaaaaaa");
+export const addAllMessage = (messages, selectedQuestion,status) => {
   return {
     type : "ADD_ALL_MSG",
     allMsg : messages,
-    selectedQuestion
+    selectedQuestion,
+    isFetching : status,
   }
 }
 
@@ -75,7 +75,7 @@ export const addMessage = message => dispatch => {
 
 const initialState = {
   msgId: 0,
-  isFetching: false,
+  isFetching: true,
   newMessage: "",
   newHostMsg: "",
   hostId: 0,
@@ -130,6 +130,7 @@ export default function questions(state = initialState, action) {
       return {
         ...state,
         [action.selectedQuestion] : {...action.allMsg},
+        isFetching : action.isFetching,
       };
 
     default:

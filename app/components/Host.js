@@ -5,6 +5,7 @@ import ChatHeader from './ChatHeader'
 import HostChat from './HostChat'
 import User from './User'
 import { store } from '../store'
+import { connect } from 'react-redux'
 
 const timeLeft = "09:00"
 export const UserName = (props) => { return (<div>{props.name}</div>)}
@@ -17,7 +18,7 @@ export default class Host extends React.Component {
             <div className="container chat-main">
             <ChatHeader time={timeLeft}/>
                 <div className="row">
-                    <User />
+                    <User type={"host"}/>
                     <HostChat />
                 </div>
             </div>
@@ -26,3 +27,11 @@ export default class Host extends React.Component {
     )
   }
 }
+
+
+const mapStateToProps = state => ({
+    user : state.users.author2,
+});
+
+
+module.exports = connect(mapStateToProps)(Host);

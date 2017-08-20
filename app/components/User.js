@@ -1,5 +1,6 @@
 import React from "react"
 import UserViewChat from './UserViewChat'
+import AudienceViewChat from './AudienceViewChat'
 import { connect } from "react-redux";
 
 export default class User extends React.Component {
@@ -15,7 +16,9 @@ export default class User extends React.Component {
                     <div className="panel panel-default user-chat">
                         <div className="panel-heading"><strong>Questions to you</strong></div>
                             <div className="panel-body user-chat-panel chat-panel">
-                                <UserViewChat />
+                                {
+                                    (this.props.type == 'host') ? <UserViewChat /> : <AudienceViewChat activeUser={this.props.type}/>
+                                }
                             </div>
                             <div className="user-footer">
                                 <div className="form-group host-chatApp-footer">
@@ -37,4 +40,9 @@ export default class User extends React.Component {
   text : state.updateUserChat.userText
 })*/
 
-module.exports = connect()(User);
+const mapStateToProps = state => ({
+    user : state.users.author2,
+});
+
+
+module.exports = connect(mapStateToProps)(User);

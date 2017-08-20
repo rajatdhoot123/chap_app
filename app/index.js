@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { store } from "./store";
-import { Host, Founder, Admin,Home,Ama} from "./components";
+import { Host, Founder, Admin, Home, Ama , Audience } from "./components";
 import { Provider, connect } from "react-redux";
 import { listenToQuestions, listenToMessages } from './api/api'
 
@@ -56,6 +56,7 @@ class App extends Component {
             <Route exact path="/admin" component={Admin} />
             <Route exact path="/admin/ama" component={Ama} />
             <Route exact path="/admin/ama/:id/modify" component={Ama} />
+            <Route exact path="/audience" component={Audience} />
           </Switch>
         </Router>
       </Provider>

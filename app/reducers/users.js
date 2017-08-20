@@ -4,6 +4,22 @@ const FETCHING_USER = "FETCHING_USER";
 const FETCHING_USER_FAILURE = "FETCHING_USER_FAILURE";
 const FETCHING_USER_SUCCESS = "FETCHING_USER_SUCCESS";
 const REMOVE_FETCHING_USER = "REMOVE_FETCHING_USER";
+const ADD_ALL_USERS = "ADD_ALL_USERS";
+
+import { listenToUsers } from '../api/api'
+
+listenToUsers();
+
+
+export const addAllUsers = (users) => {
+  console.log(users)
+  return {
+    type : ADD_ALL_USERS,
+    allUsers : users,
+  }
+}
+
+
 
 export const authUser = id => {
   return {
@@ -37,7 +53,11 @@ export default function users(state = initialState, action) {
         isAuthed: true,
         authedId: action.id
       };
-
+      case ADD_ALL_USERS:
+      return {
+        ...state,
+        ...action.allUsers
+      };
     default:
       return state;
   }
