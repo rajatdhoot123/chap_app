@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 export default class User extends React.Component {
     constructor(props){
         super(props)
-
     }
 
     render() {

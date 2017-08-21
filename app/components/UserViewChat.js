@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { store } from "../store";
-import { selectedQuestion } from "../reducers/questions";
+import { selectedQuestion ,questionFetched} from "../reducers/questions";
 import { refQue } from "../config";
 import { Router } from "react-router";
 
@@ -17,10 +17,6 @@ const UserChatTime = props =>
     <span className="chat-time">
         {props.time}
     </span>;
-
-/*const userTex =
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nulla accusamus magni vel debitis numquam qui tempora rem voluptatem delectus!";
-*/
 const UserInput = props => {
     return (
         <p>
@@ -29,17 +25,19 @@ const UserInput = props => {
     );
 };
 
+
 export default class UserViewChat extends React.Component {
+
     handleChatDiv(qid) {
         this.props.dispatch(selectedQuestion(qid));
     }
 
     render() {
         const { users, questions, questionsList, type } = this.props;
-
         if (this.props.isFetched) {
-            return <div> Loading </div>;
+            return <div> Waiting of Users </div>;
         } else {
+            if (questionsList.length === 0) { return (<h2> Waiting For Users </h2>) } else {
             return (
                 <div>
                     {questionsList.map(function(qid) {
@@ -63,6 +61,7 @@ export default class UserViewChat extends React.Component {
                     }, this)}
                 </div>
             );
+        }
         }
     }
 }

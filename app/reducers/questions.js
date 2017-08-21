@@ -2,10 +2,10 @@ const SELECTED_QUESTION = "SELECTED_QUESTION";
 const NEW_CONVERSATION = "NEW_CONVERSATION";
 const ADD_ALL_QUESTIONS = "ADD_ALL_QUESTIONS";
 const initialState = {
-  isFetching: false,
+  isFetching: true,
   selectedQuestion: 'question1',
   ama1: {
-    question1: {
+   /* question1: {
       text: "Hi from Mahesh Sharma",
       author: 'author1',
       timestamp: "12:30",
@@ -18,7 +18,7 @@ const initialState = {
       timestamp: "09:11",
       votes: 0,
       share: 0
-    }
+    }*/
   }
 };
 
@@ -58,6 +58,7 @@ export default function questions(state = initialState, action) {
       return {
         ...state,
         ama1 : {...action.allQue},
+        isFetching : action.isFetching,
       };
     /*case NEW_CONVERSATION:
       const prevQuestion = state.ama1[action.selectedQuestion];

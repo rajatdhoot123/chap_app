@@ -276,3 +276,42 @@ border: 8px solid black"*/
     margin-left: 12.5%;
     margin-right: 25%;
 }
+
+
+
+/*.circleavatar {
+    line-height: 0;
+    display: inline-block;
+    margin: 5px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 50%;
+
+    transition: linear 0.25s;
+    height: 32px;
+    width: 32px;
+}
+
+.circleavatar img {
+    border-radius: 50%;
+}*/
+
+#avatar {
+    background-image: url('http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918');
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    float: left;
+    margin-bottom: 20px;
+}
+
+
+.type1 {
+    width: 150px;
+    height: 50px;
+    background: white;
+    border: 1px solid grey;
+    border-radius: 10%;
+    margin-left : -40px;
+}

@@ -1,44 +1,8 @@
 const ADD_NEW_TEXT = "ADD_NEW_TEXT";
 const ADD_NEW_MSG = "ADD_NEW_MSG";
+const ALL_QUE_GET = "ALL_QUE_GET"
 
 import {saveNewMessage} from '../api/api'
-
-
-
-
-
-/*var queRef1 = refMsg.child('question1');
-var queRef2 = refMsg.child('question2');
-*/
-
-/*var queRef1 = queRef1.push({
- author : 'pravin',
- timeStamp : '8:50',
- text : 'Christopher in Message',
-});
-
-
-var queRef2 = queRef2.push({
-  author : 'pravin',
-  timeStamp : '8:50',
-  text : 'Christopher in Message IN Question 2',
-})
-
-var uref = ref.push({
-  description: 'I eat too much ice cream',
-  startTime : '8:50',
-  title: 'Christopher',
-});
-*/
-/*queRef2.on('value', function(snapshot) {
-    //snapshot.forEach(function(childSnapshot) {
-      //var childData = childSnapshot.val();
-      console.log(snapshot,"childData")
-    //});
-});
-
-*/
-
 
 
 export const addAllMessage = (messages, selectedQuestion,status) => {
@@ -54,6 +18,13 @@ export const addNewText = text => {
   return {
     type: ADD_NEW_TEXT,
     text
+  };
+};
+
+export const allQueFetched = status => {
+  return {
+    type: ALL_QUE_GET,
+    isFetching : status
   };
 };
 
@@ -80,7 +51,7 @@ const initialState = {
   newHostMsg: "",
   hostId: 0,
   selectedQuestion: 1,
-  question1: {
+  /*question1: {
     message1: {
       author: "author1",
       text: "This is text 1",
@@ -103,7 +74,7 @@ const initialState = {
       text: "This is text 4",
       timestamp: "11:00"
     }
-  }
+  }*/
 };
 
 export default function questions(state = initialState, action) {
@@ -130,6 +101,11 @@ export default function questions(state = initialState, action) {
       return {
         ...state,
         [action.selectedQuestion] : {...action.allMsg},
+        /*isFetching : action.isFetching,*/
+      };
+      case ALL_QUE_GET :
+      return {
+        ...state,
         isFetching : action.isFetching,
       };
 

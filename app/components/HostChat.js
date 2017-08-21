@@ -3,7 +3,7 @@ import HostViewChat from "./HostViewChat";
 import { connect } from "react-redux";
 import { addNewText, addNewMessage, addMessage } from "../reducers/messages";
 import { newConversationId } from "../reducers/questions";
-import { saveNewMessage } from "../api/api";
+import { saveNewMessage ,generateQidInUser} from "../api/api";
 import { store } from "../store";
 
 export default class HostChat extends React.Component {
@@ -15,10 +15,23 @@ export default class HostChat extends React.Component {
     }
 
     handleKeyPress(e) {
-        const { hostId, selectedQuestion, newMessage } = this.props;
+        const { hostId, selectedQuestion, newMessage, users } = this.props;
         if (e.which == 13 && !e.shiftKey) {
             e.preventDefault();
             //saveNewMessage(selectedQuestion);
+            if(this.props.type === "user"){
+                if(!users.qid){
+                    generateQidInUser("user4");
+                };
+                /*this.props.dispatch(
+                addMessage({
+                    qid: users.qid.key,
+                    author: e.target.id,
+                    text: newMessage.trim(),
+                })
+            )*/
+            }
+            /*else{*/
             this.props.dispatch(
                 addMessage({
                     qid: selectedQuestion,
@@ -26,6 +39,7 @@ export default class HostChat extends React.Component {
                     text: newMessage.trim(),
                 })
             );
+           /* }*/
             //this.props.dispatch(addNewMessage(e.target.value,e.target.id,this.props.selectedQuestion,"message31"))
             //this.props.dispatch(newConversationId(6,this.props.selectedQuestion))
             this.props.dispatch(addNewText(""));
@@ -51,7 +65,6 @@ export default class HostChat extends React.Component {
                     <div className="panel-body host-chat-panel chat-panel">
                         <ul className="chat-ul">
                         {(this.props.type === 'user') ? <HostViewChat type = {"user"}/> : <HostViewChat  type = {"host"}/>}
-                            {/*<HostViewChat />*/}
                         </ul>
                     </div>
                     <div className="host-footer">
@@ -65,7 +78,7 @@ export default class HostChat extends React.Component {
                                 placeholder="Enter Your Reply Here"
                                 className="form-control host-chat-text-box"
                                 //id={(this.props.type === "host") ? this.props.hostId : "userId"}
-                                id={(this.props.type === "host") ? "user2" : "user3"}
+                                id={(this.props.type === "host") ? "user2" : "user4"}
                             />
                         </div>
                     </div>
@@ -78,7 +91,9 @@ export default class HostChat extends React.Component {
 const mapStateToProps = state => ({
     hostId: state.ama.host,
     selectedQuestion: state.questions.selectedQuestion,
-    newMessage: state.messages.newMessage
+    newMessage: state.messages.newMessage,
+    questionFetched : state.messages.isFetching,
+    users : state.users.user4
 });
 
 /*const mapDispatchToProps = (dispatch) => {

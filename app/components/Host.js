@@ -16,13 +16,13 @@ export default class Host extends React.Component {
         <div>
             <Header />
             <div className="container chat-main">
-            <ChatHeader time={timeLeft}/>
+            <ChatHeader time={timeLeft} type={"host"}/>
                 <div className="row">
                     <User type={"host"}/>
                     <HostChat type={"host"}/>
                 </div>
             </div>
-            <ConversationThread />
+            {/*<ConversationThread />*/}
         </div>
     )
   }

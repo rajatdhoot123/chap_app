@@ -6,6 +6,7 @@ import HostChat from "./HostChat";
 import User from "./User";
 import { store } from "../store";
 import { connect } from 'react-redux'
+import { fetchQuestion } from '../api/api';
 
 const timeLeft = "09:00";
 export const UserName = props => {
@@ -17,6 +18,9 @@ export const UserName = props => {
 };
 
 class Audience extends React.Component {
+    componentDidMount(){
+        fetchQuestion("user4");
+    }
     render() {
         if(this.props.isFetching){
             return <div> Loading </div>
@@ -26,13 +30,13 @@ class Audience extends React.Component {
             <div>
                 <Header />
                 <div className="container chat-main">
-                    <ChatHeader time={timeLeft} />
+                    <ChatHeader time={timeLeft} type={"user"}/>
                     <div className="row">
                         <User type={activeUser}/>
                         <HostChat type={"user"} />
                     </div>
                 </div>
-                <ConversationThread />
+                {/*<ConversationThread />*/}
             </div>
         );
     }
@@ -40,7 +44,7 @@ class Audience extends React.Component {
 
 
 const mapStateToProps = state => ({
-    activeUser : state.users.user3,
+    activeUser : state.users.user4,
     isFetching : state.messages.isFetching,
 });
 

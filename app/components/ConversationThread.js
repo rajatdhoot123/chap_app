@@ -30,7 +30,7 @@ class ConversationThread extends React.Component {
                         return(
                         <div>
                         <div className="col-sm-12 col-md-12" >
-                                <h4><strong><UserName name="Mukul Singh" /></strong></h4>
+                                <h4><strong><UserName name={users[questions[qid].author].name} /></strong></h4>
                                 <p>{questions[qid].text} </p>
                                 <div className="col-sm-1 col-md-1" >
                                     <button type="button" className="btn btn-link"><strong>UpVote</strong></button>
@@ -38,9 +38,9 @@ class ConversationThread extends React.Component {
                                 <div className="col-sm-1 col-md-1" >
                                     <button type="button" className="btn btn-link"><strong>Share</strong></button>
                                 </div>
-                            </div>
+                        </div>
                             {Object.keys(messages[qid]).map(function (cid){
-                                console.log(users[messages[qid][cid].author].name,"aaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+                                /*console.log(users[messages[qid][cid].author].name,"aaaaaaaaaaaaaaaaaaaaaaaaaaaaa")*/
                             return(
                                 <div className="col-sm-10 col-md-10 nested-thread col-md-offset-1" >
                                 <div className="thread-text">
@@ -72,7 +72,7 @@ class ConversationThread extends React.Component {
 
 
 
-                        <div className="row">
+{/*                        <div className="row">
                             <div className="col-sm-12 col-md-12" >
                                 <h4><strong><UserName name="Mukul Singh" /></strong></h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nulla accusamus magni ve </p>
@@ -118,7 +118,7 @@ class ConversationThread extends React.Component {
                                 </div>
                             </div>
                             </div>
-                        </div>
+                        </div>*/}
                     </div>
                 </div>
             </div>

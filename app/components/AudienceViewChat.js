@@ -5,13 +5,6 @@ import { selectedQuestion } from "../reducers/questions";
 import { refQue } from "../config";
 import { Router } from "react-router";
 
-/*refQue.on("value", snapshot => {
-    var myObj = snapshot.val().ama1;
-    for (const [k, v] of Object.entries(myObj)) {
-        console.log(`Here is key `, k, `and here is value`, v);
-    }
-});*/
-
 const ctime = "13:32";
 const UserChatTime = props =>
     <span className="chat-time">
@@ -42,10 +35,19 @@ export default class UserViewChat extends React.Component {
                         key={"qid"}
                         className="chat-message clearfix"
                     >
+                        <div className="row">
                         <div className="chat-message-content clearfix">
-                            <h5 className="user-name">
+                            <div className="col-md-4 col-sm-4" >
+                            <div id="avatar" />
+                            </div>
+                            <div className="col-md-8 col-sm-8" >
+                            <h4 className="user-name">
                                 {activeUser.name}
-                            </h5>
+                            </h4>
+                            Ask Your Question Here
+                            </div>
+                        </div>
+                        <hr />
                         </div>
                     </div>
                 </div>

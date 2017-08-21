@@ -17,10 +17,19 @@ export default class HostViewChat extends React.Component {
     render() {
         const { users, questions, questionsList, selectedQuestion ,isFetching , type} = this.props;
         const messages = this.props.messages[selectedQuestion];
-        if (isFetching) {
-        return (<div> Loading </div>)
+        if (messages === undefined) { return ( <h2> Waiting for messages </h2> ) }
+        else if (isFetching) {
+        return (<div> Waiting For Users </div>)
     }
         else{
+            if (messages === undefined || (Object.keys(messages).length==0)) {
+                if(this.props.type === "user"){
+                    return ( <h4> Ask Any Question to Host </h4> )}
+                else{
+                    return ( <h4> Waiting for messages </h4> )
+                }
+            }
+            else {
             if (type === "user"){
                 var className1 = "bubble"
                 var className2 = "bubble2"
@@ -61,6 +70,7 @@ export default class HostViewChat extends React.Component {
             </div>
         )
     }
+}
     }
 }
 
