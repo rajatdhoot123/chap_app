@@ -1,7 +1,7 @@
 const ADD_NEW_TEXT = "ADD_NEW_TEXT";
 const ADD_NEW_MSG = "ADD_NEW_MSG";
 const ALL_QUE_GET = "ALL_QUE_GET"
-
+import {ADD_QUESTION , selectedQuestion , addQuestion } from './questions'
 import {saveNewMessage} from '../api/api'
 
 
@@ -37,11 +37,15 @@ export const addNewMessage = (message) => {
   };
 };
 
-export const addMessage = message => dispatch => {
-  const messageWithId = saveNewMessage(message)
-  messageWithId.msgPromise.then(() => {
+export const addMessage = message => (dispatch, getState) => {
+  const state = getState()
+  if(state.questions.isFirst){dispatch(addQuestion(message)) }
+  else{
+    const messageWithId = saveNewMessage(message)
+    messageWithId.msgPromise.then(() => {
     console.log('Saved in Thunk')
   })
+  }
 }
 
 const initialState = {
@@ -50,7 +54,7 @@ const initialState = {
   newMessage: "",
   newHostMsg: "",
   hostId: 0,
-  selectedQuestion: 1,
+  selectedQuestion: "Ks7QIk4xxl4eBCVtyO4",
   /*question1: {
     message1: {
       author: "author1",
@@ -103,12 +107,12 @@ export default function questions(state = initialState, action) {
         [action.selectedQuestion] : {...action.allMsg},
         /*isFetching : action.isFetching,*/
       };
-      case ALL_QUE_GET :
+/*      case ALL_QUE_GET :
       return {
         ...state,
         isFetching : action.isFetching,
       };
-
+*/
     default:
       return state;
   }

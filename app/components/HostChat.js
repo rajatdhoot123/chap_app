@@ -19,19 +19,11 @@ export default class HostChat extends React.Component {
         if (e.which == 13 && !e.shiftKey) {
             e.preventDefault();
             //saveNewMessage(selectedQuestion);
-            if(this.props.type === "user"){
+            /*if(this.props.type === "user"){
                 if(!users.qid){
                     generateQidInUser("user4");
                 };
-                /*this.props.dispatch(
-                addMessage({
-                    qid: users.qid.key,
-                    author: e.target.id,
-                    text: newMessage.trim(),
-                })
-            )*/
-            }
-            /*else{*/
+            }*/
             this.props.dispatch(
                 addMessage({
                     qid: selectedQuestion,
@@ -39,9 +31,6 @@ export default class HostChat extends React.Component {
                     text: newMessage.trim(),
                 })
             );
-           /* }*/
-            //this.props.dispatch(addNewMessage(e.target.value,e.target.id,this.props.selectedQuestion,"message31"))
-            //this.props.dispatch(newConversationId(6,this.props.selectedQuestion))
             this.props.dispatch(addNewText(""));
         }
     }
@@ -64,7 +53,7 @@ export default class HostChat extends React.Component {
                     </div>
                     <div className="panel-body host-chat-panel chat-panel">
                         <ul className="chat-ul">
-                        {(this.props.type === 'user') ? <HostViewChat type = {"user"}/> : <HostViewChat  type = {"host"}/>}
+                        {(this.props.type === 'user') ? <HostViewChat type = {"user"} activeUser={this.props.users}/> : <HostViewChat  type = {"host"}/>}
                         </ul>
                     </div>
                     <div className="host-footer">
@@ -78,7 +67,7 @@ export default class HostChat extends React.Component {
                                 placeholder="Enter Your Reply Here"
                                 className="form-control host-chat-text-box"
                                 //id={(this.props.type === "host") ? this.props.hostId : "userId"}
-                                id={(this.props.type === "host") ? "user2" : "user4"}
+                                id={(this.props.type === "host") ? "user1" : "user2"}
                             />
                         </div>
                     </div>
@@ -92,16 +81,9 @@ const mapStateToProps = state => ({
     hostId: state.ama.host,
     selectedQuestion: state.questions.selectedQuestion,
     newMessage: state.messages.newMessage,
+    messages: state.messages,
     questionFetched : state.messages.isFetching,
-    users : state.users.user4
+    users : state.users.user2
 });
-
-/*const mapDispatchToProps = (dispatch) => {
-    return {
-        updateHostText : (input) => dispatch(updateHostChat(input)),
-    }
-}
-
-*/
 
 module.exports = connect(mapStateToProps)(HostChat);

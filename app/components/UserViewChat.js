@@ -1,16 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { store } from "../store";
-import { selectedQuestion ,questionFetched} from "../reducers/questions";
+import { selectedQuestion ,questionFetched ,listenALlMsg} from "../reducers/questions";
 import { refQue } from "../config";
-import { Router } from "react-router";
-
-/*refQue.on("value", snapshot => {
-    var myObj = snapshot.val().ama1;
-    for (const [k, v] of Object.entries(myObj)) {
-        console.log(`Here is key `, k, `and here is value`, v);
-    }
-});*/
+import { Router, withRouter } from "react-router";
 
 const ctime = "13:32";
 const UserChatTime = props =>
@@ -25,11 +18,10 @@ const UserInput = props => {
     );
 };
 
-
 export default class UserViewChat extends React.Component {
 
     handleChatDiv(qid) {
-        this.props.dispatch(selectedQuestion(qid));
+        this.props.dispatch(listenALlMsg(qid));
     }
 
     render() {
@@ -73,4 +65,4 @@ const mapStateToProps = state => ({
     users: state.users
 });
 
-module.exports = connect(mapStateToProps)(UserViewChat);
+module.exports = withRouter(connect(mapStateToProps)(UserViewChat));

@@ -1,21 +1,22 @@
 const initialState = {
   isFetching: false,
-  id: 'ama1',
-  title: 'Ask Me Anything with Mahesh Sharma',
-  description: '',
-  startTime: '',
-  endTime: '',
-  status: '',
+  id: "ama1",
+  title: "Ask Me Anything with Mahesh Sharma",
+  description: "",
+  startTime: "",
+  endTime: "",
+  status: "",
   host: 1,
   registeredUsers: [2, 3],
   questions: [1],
   allAMA: [2, 3, 4, 5, 6, 7],
   currAMA: 2,
-  2:{
-    name:"Sharad Sharma",
-    day:"Sunday",
-    date:"10am, 16th Aug",
-    time:"10am to 12am",
+  2: {
+    name: "Sharad Sharma",
+    day: "Sunday",
+    hostId: "author2",
+    date: "10am, 16th Aug",
+    time: "10am to 12am",
     questions: 20,
     registrations: 100,
     status: "Upcoming",
@@ -32,6 +33,7 @@ He has held a number of senior executive positions with leading technology compa
   3: {
     name: "Sundar Pichai",
     day: "Wednesday",
+    hostId: "author2",
     date: "10am, 12th Aug",
     time: "10am to 12am",
     questions: 12,
@@ -97,7 +99,6 @@ Bangalore, India`
     description: `Sachin Ramesh Tendulkar (born 24 April 1973) is a former Indian cricketer and a former captain, widely regarded as one of the greatest batsmen of all time. The highest run scorer of all time in Tests and ODIs, Tendulkar took up cricket at the age of eleven, made his Test debut on 15 November 1989 against Pakistan in Karachi at the age of sixteen, and went on to represent Mumbai domestically and India internationally for close to twenty-four years. He is the only player to have scored one hundred international centuries, the first batsman to score a double century in a One Day International, the holder of the record for the number of runs in both ODI and Test cricket, and the only player to complete more than 30,000 runs in international cricket.`
   }
 };
-
 
 export default function questions(state = initialState, action) {
   switch (action.type) {

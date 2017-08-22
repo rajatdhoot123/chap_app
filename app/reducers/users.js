@@ -39,7 +39,7 @@ const initialState = {
   },
   isFetching: false,
   type: "host",
-  authedId: 1,
+  authedId: 'author1',
   isAuthed: "true",
   error: ""
 };

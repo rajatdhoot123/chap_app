@@ -27,7 +27,7 @@ export default class UserViewChat extends React.Component {
     render() {
         const { users, questions, questionsList, type ,activeUser} = this.props;
         if (this.props.isFetched) {
-            return <div> Loading </div>;
+            return <div> Loading  Loading</div>;
         } else {
             return (
                 <div>
@@ -42,7 +42,7 @@ export default class UserViewChat extends React.Component {
                             </div>
                             <div className="col-md-8 col-sm-8" >
                             <h4 className="user-name">
-                                {activeUser.name}
+                                {users.user2.name}
                             </h4>
                             Ask Your Question Here
                             </div>

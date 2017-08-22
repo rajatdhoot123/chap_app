@@ -6,7 +6,6 @@ import { addAllUsers } from "../reducers/users";
 import { addAllQuestions } from "../reducers/questions";
 console.log(ref, "ref");
 
-
 export function generateQidInUser(activeUser){
     const qidId = ref.child(`users/${activeUser}`).push().key;
     const userPromise = ref.child(`/users/${activeUser}/qid`).set({key : qidId})
@@ -20,44 +19,28 @@ export function fetchQuestion (activeUser) {
     })
 }
 
-
-/*listeners: {
-    '/questions/ama/qid' : true
-}
-*/
-
 export function listenToQuestions() {
     ref.child("questions/ama1").on("value", snapshot => {
         const questions = snapshot.val() || {};
-        store.dispatch(addAllQuestions(questions, false));
+        store.dispatch(addAllQuestions(questions, false , true , null));
+        Object.keys(questions).map((qid) => {
+            if(questions[qid].author === "user1"){
+            store.dispatch(addAllQuestions(questions,false,false,qid))
+            }
+        })
         if(!(Object.keys(questions).length === 0)){
         store.dispatch(allQueFetched(false))
         }
-        /*questions.forEach((qid) => {
-        listenToChanges()
-    })
-  })*/
     });
 }
 
-/*function listenToChanges(qid) {
-    if (store.getState().listener.qid) {
-        return
-    } else ref.child('messages/qid').on('value' , (snapshot) => {
-        const messages = snapshot.val() || {}
-        const selectedQuestion = store.getState().questions.selectedQuestion
-        store.dispatch(addAllMessage(messages, selectedQuestion,false));
-        store.dispatch({
-            type: 'ADD_LISTENER',
-            qid: `messages/${qid}`
-        })
-    })
-}*/
 
-export function listenToMessages() {
-    ref.child("messages/question1").on("value", snapshot => {
+
+
+export function listenToMessages(question) {
+    const selectedQuestion = store.getState().questions.selectedQuestion;
+    ref.child(`messages/${selectedQuestion}`).on("value", snapshot => {
         const messages = snapshot.val() || {};
-        const selectedQuestion = store.getState().questions.selectedQuestion;
         store.dispatch(addAllMessage(messages, selectedQuestion, false));
     });
 }
@@ -69,14 +52,32 @@ export function listenToUsers() {
     });
 }
 
-export function saveNewMessage(message) {
-    console.log("Save new Message Called", message);
-    const msgId = refMsg.child(`${message.qid}`).push().key;
+
+export function saveNewMessage(message , qid) {
+    const queId = store.getState().questions.currentQueId
+    const msgId = ref.child(`messages/${queId}`).push().key;
     const msgPromise = refMsg
-        .child(`${message.qid}/${msgId}`)
+        .child(`${queId}/${msgId}`)
         .set({ text: message.text, author: message.author });
     return {
         msgId,
         msgPromise
     };
 }
+
+
+export function saveQuestion(message) {
+    const queId = ref.child(`question/ama1/${message.qid}`).push().key;
+    const quePromise = ref
+        .child(`questions/ama1/${queId}`)
+        .set({ text: message.text, author: message.author });
+    return {
+        queId,
+        quePromise
+    };
+}
+
+/*if isFirst == true
+questions.forEach((question) => {
+    question.author == currentLogin.author ? isFirst = false
+})*/

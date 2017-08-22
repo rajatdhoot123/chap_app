@@ -40,7 +40,6 @@ class ConversationThread extends React.Component {
                                 </div>
                         </div>
                             {Object.keys(messages[qid]).map(function (cid){
-                                /*console.log(users[messages[qid][cid].author].name,"aaaaaaaaaaaaaaaaaaaaaaaaaaaaa")*/
                             return(
                                 <div className="col-sm-10 col-md-10 nested-thread col-md-offset-1" >
                                 <div className="thread-text">
